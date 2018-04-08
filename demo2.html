@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3Dpc_demo</title>
+    <style>
+        section{
+            width: 450px;
+            height: 300px;
+            border: 1px solid skyblue;
+            margin: 100px auto;
+            background: url("./images/3.jpg") no-repeat;
+            position: relative;
+            perspective: 1000px;
+            /*perspective:设置透视效果*/
+        }
+        .door1,.door2{
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            transition: all 1s;
+            background: url("./images/bg.png");
+        }
+        .door1{
+            left: 0;
+            border-right:  1px solid #000;
+            transform-origin:left;
+            /*设置旋转原点*/
+        }
+        .door2{
+            right: 0;
+            border-left: 1px solid #000;
+            transform-origin:right;
+        }
+        .door1::before,.door2:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #000;
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+        .door1::before {
+            right: 5px;
+        }
+        door2::before {
+            left: 5px;
+        }
+        section:hover .door1{
+            transform: rotateY(-130deg);
+        }
+        section:hover .door2{
+            transform: rotateY(130deg);
+        }
+    </style>
+</head>
+<body>
+<section>
+    <div class="door1"></div>
+    <div class="door2"></div>
+</section>
+</body>
+</html>
